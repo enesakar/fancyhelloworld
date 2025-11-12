@@ -1,0 +1,20 @@
+{
+  "name": "fancyhelloworld",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/enesakar/fancyhelloworld#readme",
+  "bugs": {
+    "url": "https://github.com/enesakar/fancyhelloworld/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enesakar/fancyhelloworld.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
