@@ -1,0 +1,23 @@
+# Development files
+.git
+.gitignore
+.DS_Store
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Test files
+test/
+*.test.js
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+*.log
+npm-debug.log*

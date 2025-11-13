@@ -7,7 +7,7 @@ A fun JavaScript library that prints "Hello World" (or any custom text) in ASCII
 ## Installation
 
 ```bash
-npm install fancy-hello-world
+npm install fancyhelloworld-demo
 ```
 
 Or if using locally:
@@ -19,7 +19,7 @@ npm install
 ## Basic Usage
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Print "HELLO WORLD" in ASCII art with 1s and 0s
 fancyHelloWorld();
@@ -54,7 +54,7 @@ The `fancyHelloWorld()` function accepts an options object with the following pr
 ### Example 1: Custom Text (Case-Insensitive)
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Works with lowercase, uppercase, or mixed case
 fancyHelloWorld({ text: "hello world" });
@@ -67,7 +67,7 @@ All three will be converted to uppercase and displayed correctly.
 ### Example 2: Custom Characters (Block Style)
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Use block characters for a solid look
 fancyHelloWorld({
@@ -92,7 +92,7 @@ fancyHelloWorld({
 ### Example 3: Asterisks and Dots
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Use asterisks and dots for a classic look
 fancyHelloWorld({
@@ -117,7 +117,7 @@ fancyHelloWorld({
 ### Example 4: Increased Letter Spacing
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Add more space between letters for better readability
 fancyHelloWorld({
@@ -131,7 +131,7 @@ This will add 3 spaces between each letter instead of the default 1.
 ### Example 5: Emoji Style
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Use emojis for a fun look
 fancyHelloWorld({
@@ -144,7 +144,7 @@ fancyHelloWorld({
 ### Example 6: Hash and Dash Style
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Programming/terminal style
 fancyHelloWorld({
@@ -158,7 +158,7 @@ fancyHelloWorld({
 ### Example 7: X and O Pattern
 
 ```javascript
-const { fancyHelloWorld } = require("./index.js");
+const { fancyHelloWorld } = require("fancyhelloworld-demo");
 
 // Tic-tac-toe style
 fancyHelloWorld({

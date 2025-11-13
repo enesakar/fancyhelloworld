@@ -1,20 +1,38 @@
 {
-  "name": "fancyhelloworld",
+  "name": "fancyhelloworld-demo",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/enesakar/fancyhelloworld#readme",
-  "bugs": {
-    "url": "https://github.com/enesakar/fancyhelloworld/issues"
+  "description": "A fun JavaScript library that prints Hello World in ASCII art using 1s and 0s with customizable characters",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "hello-world",
+    "ascii-art",
+    "ascii",
+    "binary",
+    "text-art",
+    "console",
+    "cli",
+    "terminal",
+    "fun"
+  ],
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/enesakar/fancyhelloworld#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/enesakar/fancyhelloworld.git"
   },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bugs": {
+    "url": "https://github.com/enesakar/fancyhelloworld/issues"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
