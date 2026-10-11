@@ -1,0 +1,1018 @@
+<title>Wander Mockups</title>
+<style>
+:root {
+  /* Layout: a review bench. The phone stays pinned on the left at real size; the review sheet scrolls on the right. On phones they stack. */
+  --bg: #EEF2F1;
+  --surface: #FFFFFF;
+  --fg: #152120;
+  --muted: #56666A;
+  --line: #D5DEDC;
+  --accent: #0A7F86;
+  --on-accent: #FFFFFF;
+  --device: #1B1F1F;
+  --device-edge: #3A4141;
+  --shadow: rgba(16, 32, 30, .28);
+
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* iOS system colours for the phone screen (light) */
+  --ios-bg: #FFFFFF;
+  --ios-label: #000000;
+  --ios-label2: rgba(60, 60, 67, .6);
+  --ios-label3: rgba(60, 60, 67, .3);
+  --ios-sep: rgba(60, 60, 67, .29);
+  --ios-fill: rgba(118, 118, 128, .12);
+  --ios-press: rgba(118, 118, 128, .18);
+  --ios-thumb: #FFFFFF;
+  --ios-group: #F2F2F7;
+  --ios-glass: rgba(255, 255, 255, .8);
+  --ios-glass-edge: rgba(255, 255, 255, .85);
+  --ios-shadow: rgba(0, 0, 0, .14);
+  --tint: #0A7F86;
+  --on-tint: #FFFFFF;
+  --island: #000000;
+  --art-ink: rgba(52, 36, 26, .62);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1211; --surface: #141C1B; --fg: #E3ECEA; --muted: #94A5A2; --line: #26302F;
+    --accent: #3FC5CC; --on-accent: #03282A; --device: #2A3030; --device-edge: #4A5352; --shadow: rgba(0, 0, 0, .6);
+    --ios-bg: #000000; --ios-label: #FFFFFF; --ios-label2: rgba(235, 235, 245, .6); --ios-label3: rgba(235, 235, 245, .3);
+    --ios-sep: rgba(84, 84, 88, .65); --ios-fill: rgba(118, 118, 128, .24); --ios-press: rgba(118, 118, 128, .32);
+    --ios-thumb: #636366; --ios-group: #1C1C1E; --ios-glass: rgba(44, 44, 48, .78); --ios-glass-edge: rgba(255, 255, 255, .14);
+    --ios-shadow: rgba(0, 0, 0, .5); --tint: #3FC5CC; --on-tint: #00282A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1211; --surface: #141C1B; --fg: #E3ECEA; --muted: #94A5A2; --line: #26302F;
+  --accent: #3FC5CC; --on-accent: #03282A; --device: #2A3030; --device-edge: #4A5352; --shadow: rgba(0, 0, 0, .6);
+  --ios-bg: #000000; --ios-label: #FFFFFF; --ios-label2: rgba(235, 235, 245, .6); --ios-label3: rgba(235, 235, 245, .3);
+  --ios-sep: rgba(84, 84, 88, .65); --ios-fill: rgba(118, 118, 128, .24); --ios-press: rgba(118, 118, 128, .32);
+  --ios-thumb: #636366; --ios-group: #1C1C1E; --ios-glass: rgba(44, 44, 48, .78); --ios-glass-edge: rgba(255, 255, 255, .14);
+  --ios-shadow: rgba(0, 0, 0, .5); --tint: #3FC5CC; --on-tint: #00282A;
+  color-scheme: dark;
+}
+/* The "Phone appearance" switch overrides the phone screen only. */
+.device[data-scheme="light"] {
+  --ios-bg: #FFFFFF; --ios-label: #000000; --ios-label2: rgba(60, 60, 67, .6); --ios-label3: rgba(60, 60, 67, .3);
+  --ios-sep: rgba(60, 60, 67, .29); --ios-fill: rgba(118, 118, 128, .12); --ios-press: rgba(118, 118, 128, .18);
+  --ios-thumb: #FFFFFF; --ios-group: #F2F2F7; --ios-glass: rgba(255, 255, 255, .8); --ios-glass-edge: rgba(255, 255, 255, .85);
+  --ios-shadow: rgba(0, 0, 0, .14); --tint: #0A7F86; --on-tint: #FFFFFF;
+  color-scheme: light;
+}
+.device[data-scheme="dark"] {
+  --ios-bg: #000000; --ios-label: #FFFFFF; --ios-label2: rgba(235, 235, 245, .6); --ios-label3: rgba(235, 235, 245, .3);
+  --ios-sep: rgba(84, 84, 88, .65); --ios-fill: rgba(118, 118, 128, .24); --ios-press: rgba(118, 118, 128, .32);
+  --ios-thumb: #636366; --ios-group: #1C1C1E; --ios-glass: rgba(44, 44, 48, .78); --ios-glass-edge: rgba(255, 255, 255, .14);
+  --ios-shadow: rgba(0, 0, 0, .5); --tint: #3FC5CC; --on-tint: #00282A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  padding-inline: 16px;
+  padding-block: 28px 56px;
+}
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+
+/* ---------- Review bench layout ---------- */
+.studio {
+  max-width: 1120px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  grid-template-areas: "stage intro" "stage body";
+  grid-template-rows: auto 1fr;
+  column-gap: 48px;
+  row-gap: 28px;
+  align-items: start;
+}
+.intro { grid-area: intro; display: grid; gap: 10px; }
+.sheet { grid-area: body; display: grid; gap: 28px; min-width: 0; }
+.stage {
+  grid-area: stage;
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px) + 24px);
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+@media (max-width: 880px) {
+  .studio { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "stage" "body"; grid-template-rows: auto; }
+  .stage { position: static; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.intro h1 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.lede { font-size: 17px; color: var(--muted); max-width: 44ch; }
+.meta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+.block { display: grid; gap: 12px; }
+.block h2 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.controls { display: grid; gap: 10px; }
+.ctl { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); align-items: center; gap: 12px; }
+.ctl-label { font-size: 14px; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+}
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.seg button:focus-visible, .sheet summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 420px) { .ctl { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
+
+.log {
+  font-size: 14px;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-height: 3.2em;
+}
+.log::before {
+  content: "What that tap does";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.notes { padding-left: 1.1em; display: grid; gap: 8px; max-width: 60ch; }
+.notes li::marker { color: var(--accent); }
+.notes b { font-weight: 600; }
+
+.screens { list-style: none; padding: 0; display: grid; }
+.screens li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding-block: 7px;
+  border-bottom: 1px solid var(--line);
+}
+.screens .n { font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.chip--now { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.chip--next { border-color: var(--accent); color: var(--accent); }
+
+.sheet details { border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.sheet summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.decisions { margin-top: 12px; display: grid; gap: 6px; }
+.decisions div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 12px; font-size: 14px; }
+.decisions dt { color: var(--muted); }
+.decisions dd { margin: 0; }
+@media (max-width: 420px) { .decisions div { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+
+/* ---------- Device ---------- */
+.device-wrap { position: relative; }
+.device {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 426px;
+  height: 898px;
+  padding: 12px;
+  border-radius: 68px;
+  background: var(--device);
+  box-shadow: 0 0 0 1.5px var(--device-edge), 0 40px 80px -30px var(--shadow);
+  transform: scale(var(--s, 1));
+  transform-origin: top left;
+}
+.screen {
+  position: relative;
+  width: 402px;
+  height: 874px;
+  border-radius: 56px;
+  overflow: hidden;
+  background: var(--ios-bg);
+  color: var(--ios-label);
+  font-family: var(--font-ui);
+  font-size: 17px;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+.screen :focus-visible { outline: 2px solid var(--tint); outline-offset: -2px; border-radius: 12px; }
+
+.statusbar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 54px;
+  padding: 6px 32px 0 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 40;
+  font-weight: 600;
+  font-size: 17px;
+  pointer-events: none;
+}
+.sb-icons { display: inline-flex; align-items: center; gap: 6px; }
+.island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 124px;
+  height: 36px;
+  margin-left: -62px;
+  border-radius: 20px;
+  background: var(--island);
+  z-index: 41;
+}
+.home-ind {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 140px;
+  height: 5px;
+  margin-left: -70px;
+  border-radius: 3px;
+  background: var(--ios-label);
+  z-index: 41;
+  pointer-events: none;
+}
+
+.glass {
+  background: var(--ios-glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.8);
+  backdrop-filter: blur(22px) saturate(1.8);
+  box-shadow: inset 0 0 0 .5px var(--ios-glass-edge), 0 10px 30px -6px var(--ios-shadow);
+}
+
+.navbar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 98px;
+  padding-top: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  background: color-mix(in srgb, var(--ios-bg) 74%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.8);
+  backdrop-filter: blur(18px) saturate(1.8);
+  box-shadow: 0 .5px 0 var(--ios-sep);
+}
+.nav-title { font-size: 17px; font-weight: 600; }
+.screen.is-scrolled .navbar { opacity: 1; }
+
+.scroller {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 88px 0 210px;
+  scrollbar-width: none;
+}
+.scroller::-webkit-scrollbar { display: none; }
+
+.lt { padding-inline: 16px; }
+.lt-title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 700;
+  letter-spacing: .37px;
+}
+.lt-sub {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  color: var(--ios-label2);
+}
+.lt-sub svg { width: 13px; height: 13px; color: var(--tint); flex: none; }
+
+.ios-seg {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 36px;
+  margin: 14px 16px 0;
+  padding: 2px;
+  border-radius: 100px;
+  background: var(--ios-fill);
+}
+.ios-seg::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  width: calc(50% - 2px);
+  border-radius: 100px;
+  background: var(--ios-thumb);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .04);
+  transition: transform .25s cubic-bezier(.3, .7, .3, 1);
+}
+.ios-seg[data-v="popular"]::before { transform: translateX(100%); }
+.ios-seg button { position: relative; z-index: 1; font-size: 14px; font-weight: 500; border-radius: 100px; text-align: center; }
+.ios-seg button[aria-pressed="true"] { font-weight: 600; }
+
+.quota {
+  margin: 12px 16px 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--ios-group);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.pips { display: inline-flex; gap: 3px; flex: none; }
+.pips i { width: 5px; height: 14px; border-radius: 3px; background: var(--ios-label3); }
+.pips i.on { background: var(--tint); }
+.q-text { flex: 1; min-width: 0; color: var(--ios-label2); }
+.q-text b { color: var(--ios-label); font-weight: 600; font-variant-numeric: tabular-nums; }
+.q-link { color: var(--tint); font-weight: 600; font-size: 15px; }
+.quota--out { display: grid; gap: 4px; padding: 14px; }
+.q-title { font-size: 16px; font-weight: 600; }
+.q-body { font-size: 14px; color: var(--ios-label2); }
+.btn-fill {
+  justify-self: start;
+  margin-top: 8px;
+  padding: 9px 18px;
+  border-radius: 100px;
+  background: var(--tint);
+  color: var(--on-tint);
+  font-size: 15px;
+  font-weight: 600;
+}
+.btn-plain { color: var(--tint); font-size: 15px; font-weight: 500; padding: 8px; }
+
+.rows { list-style: none; padding: 0; margin-top: 8px; }
+.row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+}
+.row:active { background: var(--ios-press); }
+.rows li + li .row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 88px;
+  right: 0;
+  height: .5px;
+  background: var(--ios-sep);
+}
+.thumb {
+  position: relative;
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+}
+.thumb svg, .m-art svg { width: 100%; height: 100%; display: block; fill: var(--art-ink); color: var(--art-ink); }
+.row.is-locked .thumb { opacity: .5; }
+.r-rank {
+  flex: none;
+  width: 18px;
+  margin-left: -2px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ios-label2);
+  font-variant-numeric: tabular-nums;
+}
+.r-main { flex: 1; min-width: 0; display: grid; }
+.r-title { font-size: 17px; font-weight: 600; line-height: 22px; }
+.row.is-current .r-title { color: var(--tint); }
+.row.is-locked .r-title { color: var(--ios-label2); }
+.r-kind { font-size: 15px; line-height: 20px; color: var(--ios-label2); }
+.r-dur { font-size: 13px; line-height: 18px; color: var(--ios-label2); margin-top: 1px; }
+.r-trail {
+  flex: none;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  min-width: 48px;
+}
+.r-dist { font-size: 15px; color: var(--ios-label2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.st { width: 18px; height: 18px; display: block; }
+.st svg { width: 100%; height: 100%; display: block; }
+.ic-check circle { fill: var(--tint); }
+.ic-check path { fill: none; stroke: var(--on-tint); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic-lock rect { fill: var(--ios-label3); }
+.ic-lock path { fill: none; stroke: var(--ios-label3); stroke-width: 1.8; }
+
+.eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 16px; }
+.eq i { width: 3px; height: 100%; border-radius: 1px; background: var(--tint); transform-origin: bottom; }
+.eq i:nth-child(1) { transform: scaleY(.5); }
+.eq i:nth-child(2) { transform: scaleY(.9); }
+.eq i:nth-child(3) { transform: scaleY(.35); }
+.eq.is-on i { animation: eq .9s ease-in-out infinite alternate; }
+.eq.is-on i:nth-child(2) { animation-delay: -.3s; }
+.eq.is-on i:nth-child(3) { animation-delay: -.6s; }
+@keyframes eq { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+
+.list-foot { padding: 14px 16px 0; font-size: 13px; color: var(--ios-label2); text-align: center; }
+
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 56px 36px 0;
+}
+.empty-ic {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--ios-fill);
+  color: var(--tint);
+  margin-bottom: 8px;
+}
+.empty-ic svg { width: 28px; height: 28px; }
+.empty h3 { font-size: 20px; font-weight: 600; }
+.empty p { font-size: 15px; color: var(--ios-label2); max-width: 30ch; }
+.empty .btn-fill { justify-self: center; margin-top: 12px; }
+
+.fade-b {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--ios-bg) 32%, transparent);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mini {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 98px;
+  height: 56px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  z-index: 20;
+}
+.mini-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; height: 100%; }
+.m-art { flex: none; width: 40px; height: 40px; border-radius: 10px; overflow: hidden; display: block; }
+.mini-text { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.mini-title { font-size: 15px; font-weight: 600; line-height: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-sub { font-size: 12px; line-height: 15px; color: var(--ios-label2); font-variant-numeric: tabular-nums; }
+.mini-bar { display: block; height: 3px; border-radius: 2px; background: var(--ios-fill); margin-top: 3px; overflow: hidden; }
+.mini-bar i { display: block; height: 100%; width: 37%; background: var(--tint); border-radius: 2px; }
+.mini-btn { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; }
+.mini-btn svg { width: 22px; height: 22px; }
+
+.tabbar {
+  position: absolute;
+  left: 20px;
+  right: 92px;
+  bottom: 26px;
+  height: 62px;
+  border-radius: 31px;
+  padding: 4px;
+  display: flex;
+  z-index: 20;
+}
+.tab {
+  flex: 1;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 2px;
+  border-radius: 27px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ios-label);
+}
+.tab svg { width: 24px; height: 24px; }
+.tab.is-active { color: var(--tint); background: var(--ios-fill); }
+.search-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 26px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+.search-btn svg { width: 24px; height: 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .eq.is-on i { animation: none; }
+  .ios-seg::before, .navbar { transition: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="a-dome" viewBox="0 0 64 64"><path d="M10 56h44v-4H10zM13 52h38V42H13zM18 42v-6h28v6zM18 36a14 14 0 0 1 28 0zM30 22v-6h4v6zM31 16v-4h2v4z"/></symbol>
+  <symbol id="a-temple" viewBox="0 0 64 64"><path d="M22 24a10 10 0 0 1 20 0z"/><path d="M8 28 32 18l24 10zM9 28h46v3H9zM12 31h3v19h-3zM19 31h3v19h-3zM26 31h3v19h-3zM35 31h3v19h-3zM42 31h3v19h-3zM49 31h3v19h-3zM8 50h48v6H8z"/></symbol>
+  <symbol id="a-fountain" viewBox="0 0 64 64"><path d="M6 56h52v-5H6zM10 51h44l-4-6H14zM30 45V16l2-6 2 6v29zM22 45c1-6 5-9 10-9s9 3 10 9z"/><path d="M30 20c-8 2-14 10-15 22M34 20c8 2 14 10 15 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="a-arena" viewBox="0 0 64 64"><path fill-rule="evenodd" d="M6 56V22q26-8 52 0v34zM10 34v-5a2.5 2.5 0 0 1 5 0v5zM20 34v-5a2.5 2.5 0 0 1 5 0v5zM30 34v-5a2.5 2.5 0 0 1 5 0v5zM40 34v-5a2.5 2.5 0 0 1 5 0v5zM50 34v-5a2.5 2.5 0 0 1 5 0v5zM10 48v-6a2.5 2.5 0 0 1 5 0v6zM20 48v-6a2.5 2.5 0 0 1 5 0v6zM30 48v-6a2.5 2.5 0 0 1 5 0v6zM40 48v-6a2.5 2.5 0 0 1 5 0v6zM50 48v-6a2.5 2.5 0 0 1 5 0v6z"/></symbol>
+  <symbol id="a-columns" viewBox="0 0 64 64"><path d="M6 56h52v-4H6zM12 52V24h5v28zM26 52V24h5v28zM40 52V30h5v22zM10 24h23v-5H10zM50 52v-6h6v6z"/></symbol>
+  <symbol id="a-fort" viewBox="0 0 64 64"><path d="M6 56h52v-4H6zM10 52V32h44v20zM20 32V22h24v10zM28 22v-4h8v4zM31 18v-7h2v7zM27 13h10v-2H27z"/></symbol>
+  <symbol id="a-stairs" viewBox="0 0 64 64"><path d="M6 56h52V30h-8v4h-6v4h-6v4h-6v4h-6v4h-6v4H6z"/><path d="M42 30V16h3v-5h2v5h8v-5h2v5h3v14z"/></symbol>
+  <symbol id="a-palazzo" viewBox="0 0 64 64"><path fill-rule="evenodd" d="M6 20h52v-4H6zM8 56V20h48v36zM13 26h6v7h-6zM23 26h6v7h-6zM35 26h6v7h-6zM45 26h6v7h-6zM13 38h6v7h-6zM23 38h6v7h-6zM35 38h6v7h-6zM45 38h6v7h-6zM29 56v-9h6v9z"/></symbol>
+  <symbol id="a-statue" viewBox="0 0 64 64"><path d="M8 56h48v-4H8zM24 52V38h16v14zM22 38h20v-3H22zM27 35l1-13h8l1 13zM28 22l-4 6 2 1 3-5zM36 22l4 6-2 1-3-5z"/><circle cx="32" cy="17" r="4"/></symbol>
+  <symbol id="a-square" viewBox="0 0 64 64"><path d="M4 56h56v-4H4zM6 52V34h12v18zM46 52V30h12v22zM30 52V20l2-6 2 6v32zM26 52v-5h12v5z"/></symbol>
+</svg>
+
+<main class="studio">
+  <header class="intro">
+    <p class="eyebrow">Wander · iPhone mockups</p>
+    <h1>Attractions list</h1>
+    <p class="lede">The first screen. It lists places near you or popular in your area, and tapping one opens its audio guide.</p>
+    <p class="meta">Screen 1 of 6 · In review · Example location: Piazza Navona, Rome</p>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="device-wrap" id="deviceWrap">
+      <div class="device" id="device" data-scheme="auto">
+        <div class="screen" id="screen">
+          <div class="scroller" id="scroller">
+            <header class="lt">
+              <h2 class="lt-title" id="ltTitle">Rome</h2>
+              <p class="lt-sub" id="ltSub"></p>
+            </header>
+            <div class="ios-seg" id="iosSeg" role="group" aria-label="Sort places" data-v="near">
+              <button type="button" id="seg-near" data-list="near" aria-pressed="true">Near</button>
+              <button type="button" id="seg-popular" data-list="popular" aria-pressed="false">Popular</button>
+            </div>
+            <div class="quota" id="quota"></div>
+            <ul class="rows" id="rows"></ul>
+            <div class="empty" id="empty" hidden>
+              <span class="empty-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5 3.8 10.6c-.8.3-.7 1.5.1 1.7l6.6 1.6 1.6 6.6c.2.8 1.4.9 1.7.1z"/></svg></span>
+              <h3>See what's around you</h3>
+              <p>Turn on location so Wander can show places near you and what's popular in your area.</p>
+              <button type="button" class="btn-fill" id="allowLoc" data-act="allow">Allow Location</button>
+              <button type="button" class="btn-plain" id="searchInstead" data-act="search">Search for a Place</button>
+            </div>
+            <p class="list-foot" id="listFoot"></p>
+          </div>
+
+          <div class="navbar" aria-hidden="true"><span class="nav-title" id="navTitle">Rome</span></div>
+
+          <div class="statusbar" aria-hidden="true">
+            <span>9:41</span>
+            <span class="sb-icons">
+              <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.6 9.5a3.4 3.4 0 0 1 4.8 0z"/><path d="M3.3 7.2a6.6 6.6 0 0 1 9.4 0l-1.5 1.5a4.5 4.5 0 0 0-6.4 0z"/><path d="M1 4.9a9.9 9.9 0 0 1 14 0l-1.5 1.5a7.8 7.8 0 0 0-11 0z"/></svg>
+              <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.8" fill="none" stroke="currentColor" opacity=".35"/><rect x="2" y="2" width="20" height="9" rx="2.4" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="currentColor" opacity=".4"/></svg>
+            </span>
+          </div>
+          <div class="island" aria-hidden="true"></div>
+
+          <div class="fade-b" aria-hidden="true"></div>
+
+          <div class="mini glass" id="mini">
+            <button type="button" class="mini-open" id="miniOpen">
+              <span id="miniArt"></span>
+              <span class="mini-text">
+                <span class="mini-title" id="miniTitle"></span>
+                <span class="mini-sub" id="miniSub"></span>
+                <span class="mini-bar" aria-hidden="true"><i></i></span>
+              </span>
+            </button>
+            <button type="button" class="mini-btn" id="miniToggle" aria-label="Pause"></button>
+          </div>
+
+          <nav class="tabbar glass" aria-label="Tabs">
+            <button type="button" class="tab is-active" id="tab-explore" data-tab="explore" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.8 8.2-2.3 5.3-5.3 2.3 2.3-5.3z" fill="currentColor" stroke="none"/></svg>
+              <span>Explore</span>
+            </button>
+            <button type="button" class="tab" id="tab-listened" data-tab="listened">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 16v-4a8 8 0 0 1 16 0v4"/><rect x="3" y="14" width="5" height="7" rx="2" fill="currentColor" stroke="none"/><rect x="16" y="14" width="5" height="7" rx="2" fill="currentColor" stroke="none"/></svg>
+              <span>Listened</span>
+            </button>
+            <button type="button" class="tab" id="tab-settings" data-tab="settings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="8.2" stroke-width="3.2" stroke-dasharray="3.2 3.24"/><circle cx="12" cy="12" r="6.2" stroke-width="1.8"/><circle cx="12" cy="12" r="2.4" stroke-width="1.8"/></svg>
+              <span>Settings</span>
+            </button>
+          </nav>
+          <button type="button" class="search-btn glass" id="searchBtn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+          </button>
+
+          <div class="home-ind" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <section class="block" aria-labelledby="h-states">
+      <h2 id="h-states">Try the states</h2>
+      <div class="controls">
+        <div class="ctl">
+          <span class="ctl-label" id="l-list">List</span>
+          <div class="seg" role="group" aria-labelledby="l-list" data-control="list">
+            <button type="button" id="c-list-near" data-v="near">Near</button>
+            <button type="button" id="c-list-popular" data-v="popular">Popular</button>
+          </div>
+        </div>
+        <div class="ctl">
+          <span class="ctl-label" id="l-audio">Audio</span>
+          <div class="seg" role="group" aria-labelledby="l-audio" data-control="audio">
+            <button type="button" id="c-audio-playing" data-v="playing">Playing</button>
+            <button type="button" id="c-audio-paused" data-v="paused">Paused</button>
+            <button type="button" id="c-audio-none" data-v="none">Nothing</button>
+          </div>
+        </div>
+        <div class="ctl">
+          <span class="ctl-label" id="l-plan">Plan</span>
+          <div class="seg" role="group" aria-labelledby="l-plan" data-control="plan">
+            <button type="button" id="c-plan-free" data-v="free">Free</button>
+            <button type="button" id="c-plan-out" data-v="out">Free, used up</button>
+            <button type="button" id="c-plan-premium" data-v="premium">Premium</button>
+          </div>
+        </div>
+        <div class="ctl">
+          <span class="ctl-label" id="l-loc">Location</span>
+          <div class="seg" role="group" aria-labelledby="l-loc" data-control="location">
+            <button type="button" id="c-loc-on" data-v="on">On</button>
+            <button type="button" id="c-loc-off" data-v="off">Off</button>
+          </div>
+        </div>
+        <div class="ctl">
+          <span class="ctl-label" id="l-scheme">Phone appearance</span>
+          <div class="seg" role="group" aria-labelledby="l-scheme" data-control="scheme">
+            <button type="button" id="c-scheme-auto" data-v="auto">Auto</button>
+            <button type="button" id="c-scheme-light" data-v="light">Light</button>
+            <button type="button" id="c-scheme-dark" data-v="dark">Dark</button>
+          </div>
+        </div>
+      </div>
+      <p class="log" id="log" aria-live="polite">Tap a place, the player bar, a tab or the search button.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-review">
+      <h2 id="h-review">What to review</h2>
+      <ul class="notes">
+        <li>The title is the city, with where you are underneath. It shrinks into the top bar when you scroll.</li>
+        <li><b>Near</b> is sorted by distance. <b>Popular</b> ranks places in your area by Wikipedia page views, so it shows rank numbers.</li>
+        <li>Each place shows its guide lengths: the 1-minute intro, then the length of Tell me more. Pasquino shows a place whose Wikipedia article is too short for more than an intro.</li>
+        <li>The free counter sits under the switch. Playing a new place uses one guide and replaying doesn't. Keep tapping new places to watch it run out.</li>
+        <li>Once all 10 are used, places you haven't heard show a lock. The ones you've heard stay playable.</li>
+        <li>The player bar floats above the tab bar, as in Apple Music.</li>
+        <li><b>Proposed:</b> a Listened tab with the places you've heard. Keep it or drop it.</li>
+        <li>Photos are drawn placeholders. The app will use each place's photo from Wikipedia.</li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="h-screens">
+      <h2 id="h-screens">Screens</h2>
+      <ol class="screens">
+        <li><span class="n">1</span><span>Attractions list</span><span class="chip chip--now">In review</span></li>
+        <li><span class="n">2</span><span>Attraction page and player</span><span class="chip chip--next">Next</span></li>
+        <li><span class="n">3</span><span>Search</span><span class="chip">Later</span></li>
+        <li><span class="n">4</span><span>Paywall</span><span class="chip">Later</span></li>
+        <li><span class="n">5</span><span>Welcome</span><span class="chip">Later</span></li>
+        <li><span class="n">6</span><span>Settings</span><span class="chip">Later</span></li>
+      </ol>
+    </section>
+
+    <details>
+      <summary>Decisions so far</summary>
+      <dl class="decisions">
+        <div><dt>More detail</dt><dd>A Tell me more button plays a 3 to 5 minute guide. Spoken questions come later.</dd></div>
+        <div><dt>Where</dt><dd>Places around you, plus search for any city or place.</dd></div>
+        <div><dt>Free limit</dt><dd>10 places a month. A place counts the first time you play it; replays are free.</dd></div>
+        <div><dt>Popular</dt><dd>Popular in your area, about a city's distance.</dd></div>
+        <div><dt>Guide text</dt><dd>Shown under the photo, highlighted as the audio plays.</dd></div>
+        <div><dt>Account</dt><dd>None until you subscribe, then Sign in with Apple.</dd></div>
+        <div><dt>Plans</dt><dd>A weekly pass and $10 a month.</dd></div>
+        <div><dt>Look</dt><dd>Native iOS, light and dark.</dd></div>
+        <div><dt>Name</dt><dd>Wander</dd></div>
+      </dl>
+    </details>
+  </div>
+</main>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+
+  // Placeholder "photos": sky gradient plus a landmark silhouette.
+  const PAL = [
+    ["#F7DDB4", "#E7A974"], ["#CFE4F3", "#94BEDD"], ["#F6C3A0", "#D88470"],
+    ["#D9D3EE", "#9E95CC"], ["#EDE2CC", "#CDB58C"], ["#CDE9E4", "#86C3BA"]
+  ];
+
+  // dist = metres from Piazza Navona; more = minutes of "Tell me more" (0 = intro only)
+  const PLACES = {
+    navona:    { name: "Piazza Navona", kind: "Baroque square", art: "square", pal: 4, dist: 20, more: 4 },
+    fountain:  { name: "Fountain of the Four Rivers", kind: "Fountain by Bernini", art: "fountain", pal: 1, dist: 40, more: 3 },
+    agnese:    { name: "Sant'Agnese in Agone", kind: "Baroque church", art: "dome", pal: 0, dist: 70, more: 3 },
+    pasquino:  { name: "Pasquino", kind: "Talking statue", art: "statue", pal: 4, dist: 110, more: 0 },
+    braschi:   { name: "Palazzo Braschi", kind: "Museum of Rome", art: "palazzo", pal: 2, dist: 120, more: 3 },
+    pace:      { name: "Santa Maria della Pace", kind: "Renaissance church", art: "dome", pal: 3, dist: 150, more: 3 },
+    madama:    { name: "Palazzo Madama", kind: "Italian Senate", art: "palazzo", pal: 1, dist: 190, more: 3 },
+    luigi:     { name: "San Luigi dei Francesi", kind: "Church with three Caravaggios", art: "dome", pal: 5, dist: 230, more: 4 },
+    altemps:   { name: "Palazzo Altemps", kind: "Museum of ancient sculpture", art: "palazzo", pal: 0, dist: 250, more: 3 },
+    pantheon:  { name: "Pantheon", kind: "Roman temple, now a church", art: "temple", pal: 0, dist: 380, more: 5 },
+    campo:     { name: "Campo de' Fiori", kind: "Market square", art: "statue", pal: 2, dist: 400, more: 3 },
+    colosseum: { name: "Colosseum", kind: "Roman amphitheatre", art: "arena", pal: 2, dist: 2100, more: 5 },
+    stpeters:  { name: "St. Peter's Basilica", kind: "Basilica", art: "dome", pal: 1, dist: 1600, more: 5 },
+    trevi:     { name: "Trevi Fountain", kind: "Baroque fountain", art: "fountain", pal: 5, dist: 1100, more: 4 },
+    sistine:   { name: "Sistine Chapel", kind: "Chapel in the Vatican", art: "palazzo", pal: 3, dist: 1900, more: 5 },
+    forum:     { name: "Roman Forum", kind: "Ancient ruins", art: "columns", pal: 4, dist: 1500, more: 5 },
+    castel:    { name: "Castel Sant'Angelo", kind: "Fortress and museum", art: "fort", pal: 1, dist: 850, more: 4 },
+    spanish:   { name: "Spanish Steps", kind: "Stairway", art: "stairs", pal: 0, dist: 1300, more: 3 },
+    vatican:   { name: "Vatican Museums", kind: "Art museums", art: "palazzo", pal: 4, dist: 2100, more: 5 }
+  };
+  const NEAR = ["navona", "fountain", "agnese", "pasquino", "braschi", "pace", "madama", "luigi", "altemps", "pantheon", "campo"];
+  const POPULAR = ["colosseum", "stpeters", "pantheon", "trevi", "sistine", "forum", "castel", "spanish", "vatican", "navona"];
+  const DEFAULT_HEARD = ["navona", "fountain", "agnese"];
+  const USED_UP_HEARD = ["navona", "fountain", "agnese", "colosseum", "stpeters", "trevi", "forum", "castel", "spanish", "vatican"];
+  const LIMIT = 10;
+
+  const ICON = {
+    arrow: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5 3.8 10.6c-.8.3-.7 1.5.1 1.7l6.6 1.6 1.6 6.6c.2.8 1.4.9 1.7.1z"/></svg>',
+    check: '<svg class="ic-check" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9"/><path d="m6 10.2 2.6 2.6L14.2 7"/></svg>',
+    lock: '<svg class="ic-lock" viewBox="0 0 20 20" aria-hidden="true"><rect x="4.5" y="9" width="11" height="8.5" rx="2"/><path d="M7 9V6.8a3 3 0 0 1 6 0V9"/></svg>',
+    pause: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg>',
+    play: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l12-7.2a1 1 0 0 0 0-1.72l-12-7.2A1 1 0 0 0 7 4.8z"/></svg>'
+  };
+
+  const state = {
+    list: "near",
+    audio: "playing",
+    plan: "free",
+    location: "on",
+    scheme: "auto",
+    listened: new Set(DEFAULT_HEARD),
+    current: "agnese"
+  };
+
+  const freeLeft = () => Math.max(0, LIMIT - state.listened.size);
+  const isLocked = (id) => state.plan !== "premium" && freeLeft() === 0 && !state.listened.has(id);
+  const fmtDist = (m) => (m < 1000 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).toFixed(1)} km`);
+  const art = (p, cls) =>
+    `<span class="${cls}" style="background:linear-gradient(180deg, ${PAL[p.pal][0]}, ${PAL[p.pal][1]})" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#a-${p.art}"/></svg></span>`;
+
+  function rowHTML(id, rank) {
+    const p = PLACES[id];
+    const locked = isLocked(id);
+    const current = state.audio !== "none" && state.current === id;
+    let status = "";
+    if (current) {
+      const on = state.audio === "playing";
+      status = `<span class="eq${on ? " is-on" : ""}" role="img" aria-label="${on ? "Playing" : "Paused"}"><i></i><i></i><i></i></span>`;
+    } else if (locked) {
+      status = `<span class="st" role="img" aria-label="Needs Premium">${ICON.lock}</span>`;
+    } else if (state.listened.has(id)) {
+      status = `<span class="st" role="img" aria-label="Listened">${ICON.check}</span>`;
+    }
+    const dur = p.more ? `1 min intro · ${p.more} min more` : "1 min intro";
+    return `<li><button type="button" class="row${current ? " is-current" : ""}${locked ? " is-locked" : ""}" data-id="${id}">
+      ${art(p, "thumb")}
+      ${rank ? `<span class="r-rank">${rank}</span>` : ""}
+      <span class="r-main"><span class="r-title">${p.name}</span><span class="r-kind">${p.kind}</span><span class="r-dur">${dur}</span></span>
+      <span class="r-trail"><span class="r-dist">${fmtDist(p.dist)}</span>${status}</span>
+    </button></li>`;
+  }
+
+  function renderHeader() {
+    const on = state.location === "on";
+    $("#ltTitle").textContent = on ? "Rome" : "Explore";
+    $("#navTitle").textContent = on ? "Rome" : "Explore";
+    $("#ltSub").innerHTML = on ? `${ICON.arrow}<span>Near Piazza Navona</span>` : "<span>Location is off</span>";
+    const seg = $("#iosSeg");
+    seg.dataset.v = state.list;
+    seg.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.list === state.list)));
+  }
+
+  function renderQuota() {
+    const q = $("#quota");
+    if (state.plan === "premium") { q.hidden = true; return; }
+    q.hidden = false;
+    const left = freeLeft();
+    if (left > 0) {
+      q.className = "quota";
+      const pips = Array.from({ length: LIMIT }, (_, i) => `<i${i < left ? ' class="on"' : ""}></i>`).join("");
+      q.innerHTML = `<span class="pips" aria-hidden="true">${pips}</span>
+        <span class="q-text"><b>${left}</b> free ${left === 1 ? "guide" : "guides"} left</span>
+        <button type="button" class="q-link" data-act="premium">Premium</button>`;
+    } else {
+      q.className = "quota quota--out";
+      q.innerHTML = `<div class="q-title">You've used your 10 free guides</div>
+        <p class="q-body">Places you've heard stay free to replay. Your free guides reset on November 1.</p>
+        <button type="button" class="btn-fill" data-act="premium">Get Premium</button>`;
+    }
+  }
+
+  function renderList() {
+    const off = state.location === "off";
+    $("#empty").hidden = !off;
+    $("#rows").hidden = off;
+    $("#listFoot").hidden = off;
+    if (off) return;
+    const ids = state.list === "near" ? NEAR : POPULAR;
+    $("#rows").innerHTML = ids.map((id, i) => rowHTML(id, state.list === "popular" ? i + 1 : 0)).join("");
+    $("#listFoot").textContent = state.list === "near"
+      ? "Sorted by distance. Place information from Wikipedia."
+      : "Ranked by Wikipedia page views in the last 30 days.";
+  }
+
+  function renderMini() {
+    const mini = $("#mini");
+    mini.hidden = state.audio === "none";
+    if (mini.hidden) return;
+    const p = PLACES[state.current];
+    $("#miniArt").innerHTML = art(p, "m-art");
+    $("#miniTitle").textContent = p.name;
+    $("#miniSub").textContent = state.audio === "playing" ? "Intro · 0:38 left" : "Intro · Paused";
+    const t = $("#miniToggle");
+    t.innerHTML = state.audio === "playing" ? ICON.pause : ICON.play;
+    t.setAttribute("aria-label", state.audio === "playing" ? "Pause" : "Play");
+  }
+
+  function syncControls() {
+    const vals = {
+      list: state.list,
+      audio: state.audio,
+      plan: state.plan === "premium" ? "premium" : freeLeft() === 0 ? "out" : "free",
+      location: state.location,
+      scheme: state.scheme
+    };
+    document.querySelectorAll("[data-control]").forEach((g) => {
+      g.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === vals[g.dataset.control])));
+    });
+    $("#device").dataset.scheme = state.scheme;
+  }
+
+  function render() {
+    renderHeader();
+    renderQuota();
+    renderList();
+    renderMini();
+    syncControls();
+  }
+
+  const log = (msg) => { $("#log").textContent = msg; };
+
+  function tapPlace(id) {
+    const name = PLACES[id].name;
+    if (isLocked(id)) {
+      log(`${name} needs Premium. In the app, this tap opens the paywall, a later mockup.`);
+      return;
+    }
+    const isNew = !state.listened.has(id);
+    state.listened.add(id);
+    state.current = id;
+    state.audio = "playing";
+    if (state.plan === "premium") {
+      log(`Opens ${name} and starts its intro. Premium has no monthly limit. The attraction page is the next mockup.`);
+    } else if (isNew) {
+      const left = freeLeft();
+      log(`Opens ${name} and starts its intro. That used a free guide, so ${left} ${left === 1 ? "is" : "are"} left.` +
+        (left === 0 ? " That was the last one." : "") + " The attraction page is the next mockup.");
+    } else {
+      log(`Opens ${name} again. Replays are free, so you still have ${freeLeft()} left.`);
+    }
+    render();
+  }
+
+  // Phone interactions
+  $("#screen").addEventListener("click", (e) => {
+    const row = e.target.closest("[data-id]");
+    if (row) return tapPlace(row.dataset.id);
+    const seg = e.target.closest("[data-list]");
+    if (seg) { state.list = seg.dataset.list; return render(); }
+    const act = e.target.closest("[data-act]");
+    if (act) {
+      if (act.dataset.act === "premium") log("Opens the paywall with the weekly pass and the $10 monthly plan. That's a later mockup.");
+      if (act.dataset.act === "allow") { state.location = "on"; render(); log("On a real iPhone this shows the system location prompt first."); }
+      if (act.dataset.act === "search") log("Opens Search, mockup 3. It finds any city or place, even before the trip.");
+      return;
+    }
+    const tab = e.target.closest("[data-tab]");
+    if (tab) {
+      const msg = {
+        explore: "You're already on Explore.",
+        listened: "Would open the Listened tab: places you've heard, newest first. It's a proposal, so keep it or drop it.",
+        settings: "Opens Settings, mockup 6: guide language, voice, subscription and usage."
+      };
+      return log(msg[tab.dataset.tab]);
+    }
+    if (e.target.closest("#searchBtn")) return log("Opens Search, mockup 3. It finds any city or place, even before the trip.");
+    if (e.target.closest("#miniToggle")) { state.audio = state.audio === "playing" ? "paused" : "playing"; return render(); }
+    if (e.target.closest("#miniOpen")) return log(`Opens the attraction page for ${PLACES[state.current].name}, the next mockup.`);
+  });
+
+  const scroller = $("#scroller");
+  scroller.addEventListener("scroll", () => {
+    $("#screen").classList.toggle("is-scrolled", scroller.scrollTop > 46);
+  }, { passive: true });
+
+  // Review panel switches
+  document.querySelectorAll("[data-control] button").forEach((b) => {
+    b.addEventListener("click", () => {
+      const key = b.closest("[data-control]").dataset.control;
+      const v = b.dataset.v;
+      if (key === "plan") {
+        if (v === "premium") state.plan = "premium";
+        else {
+          state.plan = "free";
+          state.listened = new Set(v === "out" ? USED_UP_HEARD : DEFAULT_HEARD);
+          state.current = "agnese";
+        }
+      } else {
+        state[key] = v;
+      }
+      render();
+    });
+  });
+
+  // Fit the phone: never wider than its column; on wide screens also fit the window height.
+  const stage = $("#stage");
+  const wrap = $("#deviceWrap");
+  const device = $("#device");
+  const wide = window.matchMedia("(min-width: 881px)");
+  function fit() {
+    let s = Math.min(1, stage.clientWidth / 426);
+    if (wide.matches) s = Math.min(s, (window.innerHeight - 48) / 898);
+    s = Math.max(s, 0.55);
+    device.style.setProperty("--s", s.toFixed(4));
+    wrap.style.width = `${426 * s}px`;
+    wrap.style.height = `${898 * s}px`;
+  }
+  new ResizeObserver(fit).observe(stage);
+  window.addEventListener("resize", fit);
+  fit();
+
+  render();
+})();
+</script>
